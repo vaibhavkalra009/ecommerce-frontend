@@ -1,6 +1,7 @@
 const hamburger = document.getElementById("hamburger");
-const mobileMenu = document.getElementById("mobileMenu");
+const navLinks = document.getElementById("navLinks");
 
 hamburger.addEventListener("click", () => {
-  mobileMenu.classList.toggle("show");
+  navLinks.classList.toggle("active");
+  console.log("clicked");
 });
