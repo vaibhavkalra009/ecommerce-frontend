@@ -16,13 +16,16 @@ async function fetchAndDisplayProducts() {
   errorMessage.style.display = "none";
 
   try {
-    const response = await fetch("https://fakestoreapi.com/products?limit=8");
+    const response = await fetch(
+      "https://dummyjson.com/products/category/mens-shoes?limit=5"
+    );
 
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
 
-    const products = await response.json();
+    const data = await response.json();
+    const products = data.products;
 
     // Clear loading message
     loadingMessage.style.display = "none";
@@ -38,11 +41,17 @@ async function fetchAndDisplayProducts() {
           : product.title;
 
       box.innerHTML = `
-        <img src="${product.image}" alt="${product.title}" />
+        <img src="${product.images[0]}" alt="${product.title}" />
+
         <h4 class="product-name">${truncatedTitle}</h4>
         <p class="product-price">$${product.price}</p>
         <button class="add-to-cart">Add to Cart</button>
       `;
+
+      box.addEventListener("click", () => {
+        localStorage.setItem("selectedProduct", JSON.stringify(product));
+        window.location.href = "product.html";
+      });
 
       productContainer.appendChild(box);
     });
@@ -53,3 +62,56 @@ async function fetchAndDisplayProducts() {
   }
 }
 fetchAndDisplayProducts();
+
+const testestimonials = [
+  {
+    text: "These are the most comfortable shoes I've ever owned! I wore them for 10 hours straight on my trip and my feet felt amazing.",
+    author: "Aarav Sinha, New Delhi",
+  },
+  {
+    text: "Stylish, durable, and super light. Got so many compliments at work. Already ordered my second pair!",
+    author: "Meera Joshi, Mumbai",
+  },
+  {
+    text: "Loved the design and quality! Just wish they had more color options. Still, a great purchase.",
+    author: "Ravi Menon, Bangalore",
+  },
+  {
+    text: "Excellent grip and cushioning. Perfect for my daily runs. Highly recommend to all fitness lovers.",
+    author: "Karan Deshmukh, Pune",
+  },
+];
+
+let currentIndex = 0;
+
+function displayTestimonial(index) {
+  const reviews = document.querySelector(".right-review");
+  reviews.innerHTML = ""; // Clear old content
+
+  const testimonialText = document.createElement("h5");
+  testimonialText.innerHTML = `
+    "${testestimonials[index].text}"<br><em>- ${testestimonials[index].author}</em>
+  `;
+
+  reviews.appendChild(testimonialText);
+}
+
+function setupTestimonialNavigation() {
+  const leftBtn = document.getElementById("left-btn");
+  const rightBtn = document.getElementById("right-btn");
+
+  leftBtn.addEventListener("click", () => {
+    currentIndex =
+      (currentIndex - 1 + testestimonials.length) % testestimonials.length;
+    displayTestimonial(currentIndex);
+  });
+
+  rightBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % testestimonials.length;
+    displayTestimonial(currentIndex);
+  });
+}
+
+// Initial call
+displayTestimonial(currentIndex);
+setupTestimonialNavigation();

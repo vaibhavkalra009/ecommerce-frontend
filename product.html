@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/product.css" />
+  </head>
+  <body>
+    <header class="header">
+      <!-- Logo -->
+      <div class="logo">
+        <a href="index.html"
+          ><img src="assets/Logo.png" alt="" height="38px" width="auto"
+        /></a>
+      </div>
+
+      <!-- Navigation Menu -->
+
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="#">Products</a>
+        <a href="#">Categories</a>
+        <a href="#">About</a>
+        <a href="#">Contact Us</a>
+      </nav>
+
+      <!-- Right-side Elements -->
+      <div class="header-right">
+        <img
+          class="search-icon"
+          src="assets/icons8-search-64 (1).png"
+          alt=""
+          height="24px"
+        />
+        <div
+          id="cartIcon"
+          style="position: relative; font-size: 24px; cursor: pointer"
+        >
+          <img src="assets/icons8-add-shopping-cart-32.png" alt="" />
+          <span
+            id="cartCount"
+            style="
+              position: absolute;
+              top: -8px;
+              right: -10px;
+              background-color: red;
+              color: white;
+              border-radius: 50%;
+              padding: 2px 6px;
+              font-size: 14px;
+            "
+            >0</span
+          >
+        </div>
+        <!-- <img
+          class="cart"
+          src="assets/icons8-add-shopping-cart-32.png"
+          alt=""
+          height="28px"
+        /> -->
+
+        <!-- Mobile Navigation -->
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </header>
+    <div class="product-section">
+      <div class="product-image" id="product-image">
+        <div class="image-container">
+          <img id="mainImage" alt="Product Image" />
+          <div id="zoomBox"></div>
+        </div>
+      </div>
+
+      <div class="product-details" id="product-details">
+        <div class="product-left-side" id="product-left-side">
+          <!-- product title will go here -->
+        </div>
+
+        <p class="price" id="price"></p>
+
+        <div class="star-rating">
+          <span data-value="5">&#9733;</span>
+          <span data-value="4">&#9733;</span>
+          <span data-value="3">&#9733;</span>
+          <span data-value="2">&#9733;</span>
+          <span data-value="1">&#9733;</span>
+        </div>
+
+        <div id="navigation-btns">
+          <button class="buy-now">Buy Now</button>
+          <button class="add-to-cart" id="add-to-cart">Add to cart</button>
+
+          <select id="shoeSize" name="shoeSize" required>
+            <option value="">Select Size</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="pop-up" id="cartPopup">
+      <h3>Items added to the cart succesfully</h3>
+    </div>
+
+    <script src="scripts/product.js"></script>
+  </body>
+</html>

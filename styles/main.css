@@ -5,6 +5,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -134,11 +137,11 @@ body {
   font-size: 1.2rem;
   color: #07484a;
 }
-.second-section-content {
+.similar-products {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 1rem;
-  margin: 0 8rem 4rem 8rem;
+  margin: 0 4rem 4rem 4rem;
 }
 
 .box {
@@ -151,12 +154,10 @@ body {
   padding: 4rem 2rem;
   color: #07484a;
   flex-grow: 1;
-  transition: transform 0.3s ease;
+
   cursor: pointer;
 }
-.box:hover {
-  transform: translateY(-20px);
-}
+
 .box-1 {
   background-color: #caf3e5;
 }
@@ -185,7 +186,8 @@ div.box img {
 .second-section-content {
   display: flex;
   flex-wrap: wrap;
-  /* margin: 0 2rem 4rem 2rem; */
+  margin: 1rem 5rem;
+  column-gap: 1rem;
 }
 
 @media (max-width: 1024px) {
@@ -202,4 +204,91 @@ div.box img {
     padding-right: 2rem;
     width: 100%;
   }
+}
+.benifits {
+  background-color: #e0eff6;
+  padding: 3rem 3rem;
+  margin: 4rem 0rem;
+}
+.benifits-title {
+  text-align: center;
+  padding: 2rem 0rem 4rem 0rem;
+}
+.expedeincy {
+  display: flex;
+  column-gap: 5rem;
+  justify-content: center;
+}
+.expedeincy img {
+  width: 5rem;
+  height: 6rem;
+  padding-bottom: 1rem;
+}
+.feature {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.expedeincy p {
+  font-size: small;
+  color: #5c7c77;
+}
+.benifits-title {
+  font-size: 1.8rem;
+  color: #07484a;
+  font-family: "Playfair Display", serif;
+  letter-spacing: 2px;
+}
+
+.feature h2 {
+  color: #07484a;
+  font-family: "Playfair Display", serif;
+}
+.feature {
+  padding-bottom: 2rem;
+}
+
+.reviews-heading {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  text-align: center;
+  font-size: 1.8rem;
+  color: #07484a;
+  font-family: "Playfair Display", serif;
+  letter-spacing: 2px;
+}
+
+.review-container {
+  display: flex;
+  column-gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  margin: 4rem 20rem;
+  line-height: 1.2rem;
+  font-family: "Playfair Display", serif;
+}
+
+.review-name {
+  margin: 1rem 0rem;
+}
+
+#left-btn {
+  padding: 0.5rem;
+  background-color: antiquewhite;
+
+  border: none;
+
+  bottom: 2rem;
+  cursor: pointer;
+}
+#right-btn {
+  padding: 0.5rem;
+  background-color: #caf3e5;
+  border: none;
+  cursor: pointer;
+}
+.testimonials {
+  margin: 10rem;
 }
