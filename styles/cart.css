@@ -6,9 +6,12 @@ body {
   padding: 0;
 }
 
-header {
-  background-color: rgb(246, 221, 175);
+.header {
+  background-color: #161616;
   position: relative !important;
+}
+.header a {
+  text-decoration: none;
 }
 .left-side img {
   width: 10rem;

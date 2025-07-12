@@ -63,7 +63,7 @@ async function fetchAndDisplayProducts() {
 }
 fetchAndDisplayProducts();
 
-const testestimonials = [
+const testimonials = [
   {
     text: "These are the most comfortable shoes I've ever owned! I wore them for 10 hours straight on my trip and my feet felt amazing.",
     author: "Aarav Sinha, New Delhi",
@@ -85,29 +85,29 @@ const testestimonials = [
 let currentIndex = 0;
 
 function displayTestimonial(index) {
-  const reviews = document.querySelector(".right-review");
+  const reviews = document.querySelector(".quote-text");
   reviews.innerHTML = ""; // Clear old content
 
   const testimonialText = document.createElement("h5");
   testimonialText.innerHTML = `
-    "${testestimonials[index].text}"<br><em>- ${testestimonials[index].author}</em>
+    "${testimonials[index].text}"<br><em>- ${testimonials[index].author}</em>
   `;
 
   reviews.appendChild(testimonialText);
 }
 
 function setupTestimonialNavigation() {
-  const leftBtn = document.getElementById("left-btn");
-  const rightBtn = document.getElementById("right-btn");
+  const leftBtn = document.querySelector(".prev");
+  const rightBtn = document.querySelector(".next");
 
   leftBtn.addEventListener("click", () => {
     currentIndex =
-      (currentIndex - 1 + testestimonials.length) % testestimonials.length;
+      (currentIndex - 1 + testimonials.length) % testimonials.length;
     displayTestimonial(currentIndex);
   });
 
   rightBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % testestimonials.length;
+    currentIndex = (currentIndex + 1) % testimonials.length;
     displayTestimonial(currentIndex);
   });
 }
