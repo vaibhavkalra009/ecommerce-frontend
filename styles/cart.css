@@ -91,3 +91,32 @@ body {
   cursor: pointer;
   font-size: large;
 }
+
+.moving-banner {
+  width: 100%;
+  overflow: hidden;
+  background-color: whitesmoke; /* or your preferred brand color */
+  color: black;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 14px 0;
+  position: relative;
+  font-size: small;
+}
+
+.moving-banner p {
+  display: inline-block;
+  white-space: nowrap;
+  position: absolute;
+  bottom: 0.3rem;
+  animation: slideBanner 20s linear infinite;
+}
+
+@keyframes slideBanner {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}

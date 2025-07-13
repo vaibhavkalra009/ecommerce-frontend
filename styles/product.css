@@ -123,6 +123,13 @@ body {
   transform: translateY(30px); /* start lower */
 }
 
+.banner {
+  text-align: center;
+  padding: 0.3rem;
+  font-size: smaller;
+  font-family: "poppins";
+}
+
 .pop-up.show {
   animation: slideUpFade 5.5s ease forwards;
 }
