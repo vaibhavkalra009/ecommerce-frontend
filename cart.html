@@ -25,7 +25,7 @@
       <nav class="nav-links" id="navLinks">
         <a href="index.html">Home</a>
         <a href="#">Products</a>
-        <a href="#">Categories</a>
+        <a href="#">Benifits</a>
         <a href="#">About</a>
         <a href="#">Contact Us</a>
       </nav>
@@ -74,34 +74,18 @@
         </div>
       </div>
     </header>
-    <div class="cart-section">
-      <div class="cart-info">
-        <div class="left-side" id="product-image">
-          <!-- <img src="assets/products/717nmdgDwsL._SX695_.jpg" alt="" /> -->
-          <div class="quantity-selector">
-            <button id="decrease">-</button>
-            <input type="number" value="1" min="1" readonly id="quantity" />
-            <button id="increase">+</button>
-          </div>
+
+    <div id="cart-container">
+      <div class="cartRightSection">
+        <h3>Price Details</h3>
+
+        <div class="priceDetails">
+          <h2 id="totalAmount"></h2>
         </div>
-        <div class="right-side">
-          <!-- <h3 id="product-title">adidas shoes mercurial</h3>
-          <p id="category">xyz</p>
-          <p id="size">Size :</p>
-          <p id="price">123</p>
-          <p id="shipping-information">delivery in 2 weeks</p> -->
-        </div>
-      </div>
-      <div class="price-info">
-        <div class="price-details">
-          <h3>Price Details</h3>
-          <p>Total amount</p>
-          <div class="place-order">
-            <button id="orderbtn">Place Order</button>
-          </div>
-        </div>
+        <button id="placeOrder">Place order</button>
       </div>
     </div>
+
     <script src="scripts/cart.js"></script>
   </body>
 </html>

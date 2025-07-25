@@ -17,7 +17,7 @@ async function fetchAndDisplayProducts() {
 
   try {
     const response = await fetch(
-      "https://dummyjson.com/products/category/mens-shoes?limit=5"
+      "https://dummyjson.com/products/category/mens-shoes?limit=4"
     );
 
     if (!response.ok) {
@@ -45,7 +45,7 @@ async function fetchAndDisplayProducts() {
 
         <h4 class="product-name">${truncatedTitle}</h4>
         <p class="product-price">$${product.price}</p>
-        <button class="add-to-cart">Add to Cart</button>
+        <button class="add-to-cart">View Product</button>
       `;
 
       box.addEventListener("click", () => {

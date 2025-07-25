@@ -1,4 +1,4 @@
-//navigation -->
+// //navigation -->
 
 const cartIcon = document.getElementById("cartIcon");
 
@@ -6,7 +6,7 @@ cartIcon.addEventListener("click", () => {
   window.location.href = "cart.html";
 });
 
-// navigation end -->
+// // navigation end -->
 
 // Star review functionality starts -->
 
@@ -26,9 +26,9 @@ function fillStars(rating) {
   });
 }
 
-// star review functionality ends -->
+// // star review functionality ends -->
 
-// fetching products from fake api -->
+// // fetching products from fake api -->
 
 function DisplayProductFromLocalStorage() {
   const productImage = document.getElementById("product-image");
@@ -67,9 +67,9 @@ function DisplayProductFromLocalStorage() {
 
 DisplayProductFromLocalStorage();
 
-// fetching product ends -->
+// // fetching product ends -->
 
-// Add to cart functionality -->
+// // Add to cart functionality -->
 
 const cart = document.getElementById("add-to-cart");
 const cartNum = document.getElementById("cartCount");
@@ -152,6 +152,26 @@ mainImage.addEventListener("mousemove", (e) => {
   zoomBox.style.backgroundPosition = `${xPercent}% ${yPercent}%`;
 });
 
-// zoom functionality end -->
+// // zoom functionality end -->
 
-// pop up functionality -->
+// Add to cart button functionality --> starts
+
+const addToCartBtn = document.getElementById("add-to-cart");
+const selectedProduct = JSON.parse(localStorage.getItem("selectedProduct"));
+
+addToCartBtn.addEventListener("click", () => {
+  // Get existing cart or initialize
+  let cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+  // Optional: Check for duplicates
+  const alreadyInCart = cart.find((item) => item.id === selectedProduct.id);
+  if (!alreadyInCart) {
+    cart.push(selectedProduct);
+    localStorage.setItem("cartItems", JSON.stringify(cart));
+  }
+
+  // Redirect to cart page
+  // window.location.href = "cart.html";
+});
+
+// ends -->
