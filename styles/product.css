@@ -8,7 +8,7 @@ body {
 .product-section {
   display: flex;
   height: 86vh;
-  background-color: white;
+  background-color: #f6f9f7;
 
   align-items: center;
   column-gap: 5rem;
@@ -150,5 +150,145 @@ body {
   100% {
     opacity: 0;
     transform: translateY(-20px);
+  }
+}
+
+/* Tablet & Mobile */
+@media (max-width: 768px) {
+  .product-section {
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+    margin: 1rem;
+    height: auto;
+  }
+
+  .product-image {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .product-details {
+    width: 100%;
+    padding: 0;
+    row-gap: 1rem;
+    text-align: center;
+  }
+
+  .product-left-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #navigation-btns {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .add-to-cart,
+  #shoeSize {
+    width: 80%;
+    padding: 0.8rem 1.5rem;
+  }
+
+  .header {
+    padding: 0.5rem 1rem;
+    flex-wrap: wrap;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #161616;
+    z-index: 99;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+  }
+
+  .hamburger span {
+    height: 3px;
+    width: 25px;
+    background-color: #04a991;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .search-icon {
+    display: none;
+  }
+
+  .pop-up {
+    bottom: 2rem;
+    right: 1rem;
+    left: 1rem;
+    font-size: 0.9rem;
+    padding: 0.8rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .logo h1 {
+    font-size: 1.2rem;
+  }
+
+  .add-to-cart,
+  #shoeSize {
+    width: 100%;
+  }
+
+  .product-section {
+    margin: 1rem 0.5rem;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .footer-links {
+    flex-direction: column;
+  }
+
+  .footer-brand,
+  .footer-bottom {
+    text-align: center;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+}
+.logo h1 {
+  color: #04a991;
+  font-size: 2rem;
+}
+
+@media (max-width: 480px) {
+  .logo h1 {
+    font-size: 1.4rem;
   }
 }

@@ -1,3 +1,10 @@
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("navLinks");
+
+hamburger.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+});
+
 function renderCartItems() {
   const cartContainer = document.getElementById("cart-container");
   const cartRightSection = document.querySelector(".cartRightSection");
@@ -130,3 +137,12 @@ function removeFromCart(index) {
 }
 
 renderCartItems();
+
+function updateCartCountInNavbar() {
+  const cartNum = document.getElementById("cartCount");
+  const cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+  if (cartNum) {
+    cartNum.textContent = cart.length;
+  }
+}
+updateCartCountInNavbar();

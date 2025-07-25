@@ -3,7 +3,6 @@ const navLinks = document.getElementById("navLinks");
 
 hamburger.addEventListener("click", () => {
   navLinks.classList.toggle("active");
-  console.log("clicked");
 });
 
 async function fetchAndDisplayProducts() {
@@ -111,7 +110,22 @@ function setupTestimonialNavigation() {
     displayTestimonial(currentIndex);
   });
 }
+function updateCartCountInNavbar() {
+  const cartNum = document.getElementById("cartCount");
+  const cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+  if (cartNum) {
+    cartNum.textContent = cart.length;
+  }
+}
 
 // Initial call
 displayTestimonial(currentIndex);
 setupTestimonialNavigation();
+
+updateCartCountInNavbar();
+
+const cartIcon = document.getElementById("cartIcon");
+
+cartIcon.addEventListener("click", () => {
+  window.location.href = "cart.html";
+});

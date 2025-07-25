@@ -1,35 +1,28 @@
-// //navigation -->
-
+// // Navigation -->
 const cartIcon = document.getElementById("cartIcon");
 
 cartIcon.addEventListener("click", () => {
   window.location.href = "cart.html";
 });
+// // Navigation end -->
 
-// // navigation end -->
-
-// Star review functionality starts -->
-
+// // Star Review Functionality -->
 const stars = document.querySelectorAll(".star-rating span");
 const ratingText = document.getElementById("rating-value");
-let selectedRating = 0;
 
 function fillStars(rating) {
-  const stars = document.querySelectorAll(".star-rating span");
   stars.forEach((star) => {
     const value = parseInt(star.getAttribute("data-value"));
     if (value <= Math.floor(rating)) {
-      star.classList.add("selected"); // full stars
+      star.classList.add("selected");
     } else {
       star.classList.remove("selected");
     }
   });
 }
+// // Star review ends -->
 
-// // star review functionality ends -->
-
-// // fetching products from fake api -->
-
+// // Fetch product from localStorage and display -->
 function DisplayProductFromLocalStorage() {
   const productImage = document.getElementById("product-image");
   const productLeftSide = document.getElementById("product-left-side");
@@ -44,19 +37,19 @@ function DisplayProductFromLocalStorage() {
   }
 
   const imageBox = document.createElement("div");
-  const title = document.createElement("h3");
-  const description = document.createElement("p");
-  const productPrice = document.createElement("p");
 
+  const title = document.createElement("h3");
+  title.innerHTML = `<h3 class="product-title">${product.title}</h3>`;
+
+  const description = document.createElement("p");
   description.innerHTML = `<p>${product.description}</p>`;
+
+  const productPrice = document.createElement("p");
   productPrice.textContent = `Price: $${product.price}`;
 
-  //   imageBox.innerHTML = `<img src="${product.images[0]}"/>
-  // `;
   const mainImage = document.getElementById("mainImage");
   mainImage.src = product.images[0];
   mainImage.alt = product.title;
-  title.innerHTML = `<h3 class="product-title">${product.title}</h3>`;
 
   productImage.prepend(imageBox);
   productLeftSide.appendChild(title);
@@ -66,65 +59,65 @@ function DisplayProductFromLocalStorage() {
 }
 
 DisplayProductFromLocalStorage();
+// // Fetching product ends -->
 
-// // fetching product ends -->
-
-// // Add to cart functionality -->
-
-const cart = document.getElementById("add-to-cart");
+// // Add to Cart Functionality -->
+const addToCartBtn = document.getElementById("add-to-cart");
 const cartNum = document.getElementById("cartCount");
 const shoeSize = document.getElementById("shoeSize");
 const navbtns = document.getElementById("navigation-btns");
+const selectedProduct = JSON.parse(localStorage.getItem("selectedProduct"));
 
-let cartCounter = 0;
+updateCartCountInNavbar(); // Initialize cart count
 
-// shoe size -->
-
-cart.addEventListener("click", () => {
-  function showCartPopup() {
-    const popup = document.getElementById("cartPopup");
-    popup.classList.add("show");
-
-    setTimeout(() => {
-      popup.classList.remove("show");
-    }, 3500); // show for 2 seconds
-  }
+addToCartBtn.addEventListener("click", () => {
   const selectedSize = shoeSize.value;
 
   const oldAlert = document.getElementById("size-alert");
-  if (oldAlert) {
-    oldAlert.remove();
-  }
+  if (oldAlert) oldAlert.remove();
+
   if (!selectedSize) {
     const alert = document.createElement("p");
     alert.textContent = "⚠️ Please select a shoe size";
     alert.style.color = "red";
     alert.id = "size-alert";
     navbtns.appendChild(alert);
-
     return;
   }
-  // ends -->
 
-  const inCart = cart.classList.toggle("in-cart");
+  let cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+  const alreadyInCart = cart.find((item) => item.id === selectedProduct.id);
 
-  if (inCart) {
-    cartCounter++;
-    cart.textContent = "Added to cart ✅";
-    cartNum.textContent = cartCounter;
-
-    showCartPopup();
-  } else {
-    cartCounter--;
-    cart.textContent = "Add to cart";
+  if (!alreadyInCart) {
+    cart.push({ ...selectedProduct, size: selectedSize });
+    localStorage.setItem("cartItems", JSON.stringify(cart));
   }
 
-  cartNum.textContent = cartCounter;
+  // ✅ Show popup
+  const popup = document.getElementById("cartPopup");
+  if (popup) {
+    popup.classList.add("show");
+    setTimeout(() => {
+      popup.classList.remove("show");
+    }, 3500);
+  }
+
+  // ✅ Update button text and cart count
+  addToCartBtn.textContent = "Added to cart ";
+  addToCartBtn.style.backgroundColor = "orange";
+  updateCartCountInNavbar();
 });
+// // Add to cart ends -->
 
-// ends
+function updateCartCountInNavbar() {
+  const cartNum = document.getElementById("cartCount");
+  const cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+  if (cartNum) {
+    cartNum.textContent = cart.length;
+  }
+}
 
-// zoom functionality start -->
+// // Zoom functionality -->
 const mainImage = document.getElementById("mainImage");
 const zoomBox = document.getElementById("zoomBox");
 
@@ -145,33 +138,8 @@ mainImage.addEventListener("mousemove", (e) => {
   const xPercent = (x / rect.width) * 100;
   const yPercent = (y / rect.height) * 100;
 
-  // Position zoomBox relative to image container instead of full page
   zoomBox.style.left = `${x}px`;
   zoomBox.style.top = `${y}px`;
-
   zoomBox.style.backgroundPosition = `${xPercent}% ${yPercent}%`;
 });
-
-// // zoom functionality end -->
-
-// Add to cart button functionality --> starts
-
-const addToCartBtn = document.getElementById("add-to-cart");
-const selectedProduct = JSON.parse(localStorage.getItem("selectedProduct"));
-
-addToCartBtn.addEventListener("click", () => {
-  // Get existing cart or initialize
-  let cart = JSON.parse(localStorage.getItem("cartItems")) || [];
-
-  // Optional: Check for duplicates
-  const alreadyInCart = cart.find((item) => item.id === selectedProduct.id);
-  if (!alreadyInCart) {
-    cart.push(selectedProduct);
-    localStorage.setItem("cartItems", JSON.stringify(cart));
-  }
-
-  // Redirect to cart page
-  // window.location.href = "cart.html";
-});
-
-// ends -->
+// // Zoom ends -->

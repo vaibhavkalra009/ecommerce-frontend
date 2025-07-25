@@ -130,18 +130,7 @@ body {
   display: flex;
   gap: 2rem;
 }
-.hamburger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  gap: 4px;
-}
-.hamburger span {
-  height: 2px;
-  width: 25px;
-  background-color: #07484a;
-  display: block;
-}
+
 .search-icon {
   cursor: pointer;
 }
@@ -209,21 +198,6 @@ div.box img {
   background-color: #0d0d0d;
 }
 
-@media (max-width: 1024px) {
-  .header {
-    display: none;
-  }
-}
-@media (max-width: 420px) {
-  .second-section-content {
-    margin: 0 2rem 4rem 2rem;
-  }
-  .hero-content {
-    margin: 0 3rem;
-    padding-right: 2rem;
-    width: 100%;
-  }
-}
 .benifits {
   background-color: #0d0d0d;
   padding: 3rem 3rem 10rem 3rem;
@@ -422,19 +396,213 @@ div.box img {
 .footer-brand span {
   color: black;
 }
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  z-index: 20;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 28px;
+  background-color: #04a991;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
 
 @media (max-width: 768px) {
+  .header {
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0d0d0d;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+  }
+
+  .logo {
+    flex: 1;
+    color: #04a991;
+    font-size: 1.5rem;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background-color: #0d0d0d;
+    padding: 1rem 2rem;
+    z-index: 9;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+  }
+}
+
+/* Mobile phones (<=480px) */
+@media (max-width: 480px) {
+  .header {
+    padding: 1rem 1.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #0d0d0d;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 1rem;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .header-right {
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 1rem;
+  }
+
+  .hero-content {
+    padding: 10rem 1rem 0;
+    align-items: flex-start;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+    line-height: 2.5rem;
+    width: 100%;
+  }
+
+  .hero-content span {
+    font-size: 3rem;
+  }
+
+  .similar-products {
+    grid-template-columns: 1fr;
+    margin: 0 1rem 2rem 1rem;
+  }
+
+  .second-section-content {
+    padding: 1rem;
+    display: flex;
+    row-gap: 2rem;
+  }
+
+  .expedeincy {
+    flex-direction: column;
+    row-gap: 3rem;
+  }
+
   .footer-content {
     flex-direction: column;
     text-align: center;
+    gap: 2rem;
   }
 
-  .footer-bottom {
+  .footer-links {
     flex-direction: column;
-    gap: 10px;
+    column-gap: 2rem;
+    row-gap: 2rem;
   }
 
-  .social-icons {
+  .testimonial-card {
+    padding: 2rem 1.5rem;
+  }
+}
+
+/* Tablets (481px to 768px) */
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem 2rem;
+  }
+
+  .nav-links {
+    gap: 1.5rem;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+    line-height: 3rem;
+    width: 100%;
+  }
+
+  .hero-content span {
+    font-size: 4rem;
+  }
+
+  .similar-products {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 2rem 3rem 2rem;
+  }
+
+  .second-section-content {
+    padding: 2rem;
+  }
+
+  .expedeincy {
+    column-gap: 4rem;
+    flex-wrap: wrap;
     justify-content: center;
+  }
+
+  .footer-content {
+    gap: 4rem;
+  }
+
+  .footer-links {
+    flex-wrap: wrap;
+    column-gap: 2rem;
+    row-gap: 2rem;
+  }
+}
+
+/* Small laptops (769px to 1024px) */
+@media (max-width: 1024px) {
+  .header {
+    padding: 1rem 3rem;
+  }
+
+  .similar-products {
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0 2rem 3rem 2rem;
+  }
+
+  .expedeincy {
+    column-gap: 5rem;
+  }
+
+  .footer-content {
+    gap: 6rem;
+  }
+
+  .footer-links {
+    column-gap: 4rem;
   }
 }
