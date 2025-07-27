@@ -111,11 +111,11 @@ body {
 .pop-up {
   position: fixed;
   bottom: 4rem;
-  right: 32rem;
-  background-color: #70908b;
+  right: 26rem;
+  background-color: orange;
   color: white;
-  padding: 1rem 2rem;
-  border-radius: 1rem;
+  padding: 2rem 10rem;
+  border-radius: 0.5rem;
   font-family: "Playfair Display", serif;
   z-index: 9999;
   opacity: 0;
