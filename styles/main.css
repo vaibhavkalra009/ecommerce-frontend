@@ -67,7 +67,7 @@ body {
 }
 
 .hero-section {
-  background: url("/assets/pexels-grailify-2658558-4252965\ 1.png");
+  background: url("../assets/hero-bg-image.png");
   height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
